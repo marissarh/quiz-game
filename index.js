@@ -141,12 +141,14 @@ if (isCorrect){
     scoreSpan.textContent = score;
 }
 
-setTimeout(() => currentQuestionIndex++ ;
+setTimeout(() => {
+    currentQuestionIndex++ ;
 
 if(currentQuestionIndex < quizQuestions.length){
     showQuestion()
 } else{
     showResults()
+}
 }, 1000)
 }
 
