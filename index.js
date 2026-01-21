@@ -80,6 +80,7 @@ restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz(){
     currentQuestionIndex = 0;
+    score = 0;
     scoreSpan.textContent= 0;
     startScreen.classList.remove("active");
     quizScreen.classList.add("active");
@@ -109,9 +110,9 @@ function showQuestion() {
 
         // dataset: a property of the button element that allows you to store custom data
 
-        button.dataset.correct = answer.correct
+        button.dataset.correct = answer.correct;
 
-        button.addEventListener("click", selectAnswer)
+        button.addEventListener("click", selectAnswer);
 
         answersContainer.appendChild(button);
     });
@@ -158,7 +159,7 @@ function showResults(){
 
     finalScoreSpan.textContent = score;
 
-    const percentage = (score/quizQuestions.length) * 100
+    const percentage = (score / quizQuestions.length) * 100;
     
     if(percentage === 100){
         resultMessage.textContent = "Perfect! You're a genuis!";
@@ -178,6 +179,8 @@ function showResults(){
 function restartQuiz(){
 
     resultScreen.classList.remove("active");
+    //missing restart quiz
+    startQuiz();
     console.log("quiz re-started");
 }
 
